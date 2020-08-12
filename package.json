@@ -1,0 +1,19 @@
+{
+  "name": "stadtnavi-widget",
+  "version": "0.0.1",
+  "description": "widget to display map markers for stadtnavi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.2.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "leaflet": "1.6.0"
+  }
+}
