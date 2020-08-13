@@ -11,6 +11,7 @@
   "devDependencies": {
     "grunt": "^1.2.1",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-watch": "^1.1.0",
     "gulp": "^4.0.2"
   },
   "dependencies": {
