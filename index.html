@@ -34,12 +34,19 @@
       <div id='stadtnavi-widget'></div>
 
       <p>Click into the map to select a location.</p>
+      <h2>Result</h2>
+      <code id="result-1"> </code>
 
     </main>
 
 
   <script type="text/javascript">
-    new StadtnaviWidget('stadtnavi-widget');
+    new StadtnaviWidget('stadtnavi-widget', {
+      onLocationSelected: (location) => {
+        var str = JSON.stringify(location, null, 2);
+        document.getElementById("result-1").textContent = str;
+      }
+    });
   </script>
   </body>
 
