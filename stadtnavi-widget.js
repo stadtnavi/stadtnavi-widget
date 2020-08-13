@@ -14078,16 +14078,20 @@ window.L = exports;
 
 })));
 //# sourceMappingURL=leaflet-src.js.map
-;class Widget {
+;class StadtnaviWidget {
 
   constructor(divId) {
+    const defaults = {
+      tileUrl: "https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png",
+      center: [48.7840, 9.1829]
+    };
 
-    var map = L.map(divId, {
-      center: [48.7840, 9.1829],
+    const map = L.map(divId, {
+      center: defaults.center,
       zoom: 12
     });
 
-    L.tileLayer('https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png', {
+    L.tileLayer(defaults.tileUrl, {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
       maxZoom: 18,
       tileSize: 256
