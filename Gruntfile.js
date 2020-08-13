@@ -11,13 +11,17 @@ module.exports = function(grunt) {
           'node_modules/leaflet/dist/leaflet-src.js',
           'src/**/*.js'
         ],
-        dest: 'dist/<%= pkg.name %>.js'
+        dest: 'dist/<%= pkg.name %>-latest.js'
       }
     },
     copy: {
       main: {
         src: 'src/demo.html',
         dest: 'dist/index.html',
+      },
+      version: {
+        src: 'dist/<%= pkg.name %>-latest.js',
+        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
     },
     watch: {
