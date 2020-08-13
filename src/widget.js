@@ -45,12 +45,13 @@ class StadtnaviWidget {
     const { properties : { name, street, housenumber, postcode, city }} = geoJson.features[0];
 
     var firstPart = `${street} ${housenumber}`;
-    if(!street) {
+    if(!street && name) {
       firstPart = name;
+    } else if(!housenumber) {
+      firstPart = street;
     }
 
     const address = `${firstPart}, ${postcode} ${city}`;
-    console.log(address);
     return address;
   }
 }
