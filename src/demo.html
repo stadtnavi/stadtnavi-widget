@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/sandstone/bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="stadtnavi-widget.js"></script>
 
@@ -16,8 +17,8 @@
       margin: 0;
     }
 
-    #map {
-      width: 500px;
+    #stadtnavi-widget {
+      width: 100%;
       height: 500px;
     }
 
@@ -26,15 +27,20 @@
 
   </head>
   <body>
+    <main role="main" class="container">
+      <h1 class="mt-5">stadtnavi widget</h1>
+      <p class="lead">Integrate stadtnavi into your own website.</p>
 
-    <div id='map'>
-    </div>
+      <div id='stadtnavi-widget'></div>
 
-    <script type="text/javascript">
-      new Widget('map');
-    </script>
+    </main>
 
+
+  <script type="text/javascript">
+    new Widget('stadtnavi-widget');
+  </script>
   </body>
+
 </html>
 
 

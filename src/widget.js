@@ -8,7 +8,7 @@ class Widget {
     });
 
     L.tileLayer('https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png', {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
       maxZoom: 18,
       tileSize: 256
     }).addTo(map);
