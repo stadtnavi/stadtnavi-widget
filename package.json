@@ -1,6 +1,6 @@
 {
   "name": "stadtnavi-widget",
-  "version": "0.0.1",
+  "version": "0.0.1-1-g7ba7e2d",
   "description": "widget to display map markers for stadtnavi",
   "main": "index.js",
   "scripts": {
