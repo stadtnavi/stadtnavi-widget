@@ -23,6 +23,14 @@ module.exports = function(grunt) {
         src: 'dist/<%= pkg.name %>-latest.js',
         dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
       },
+      css: {
+        src: 'node_modules/leaflet/dist/leaflet.css',
+        dest: 'dist/<%= pkg.name %>-latest.css'
+      },
+      css_versioned: {
+        src: 'node_modules/leaflet/dist/leaflet.css',
+        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
+      },
     },
     watch: {
       files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.html', 'test/**/*.js'],
