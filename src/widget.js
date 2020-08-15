@@ -19,7 +19,8 @@ class StadtnaviLocationSelector {
 
   constructor(divId, options) {
 
-    const mergedOptions = this.computeOptions(options || {});
+    this.mergedOptions = this.computeOptions(options || {});
+    const mergedOptions = this.mergedOptions;
 
     this.map = L.map(divId, {
       center: mergedOptions.center,
@@ -37,20 +38,9 @@ class StadtnaviLocationSelector {
 
     this.map.on("click", (e) => {
 
-      const marker = this.setMarker(e.latlng);
       const { lat, lng } = e.latlng;
 
-      this.reverseGeocode(lat, lng)
-        .then(address => {
-          marker.bindPopup(address).openPopup();
-
-          mergedOptions.onLocationSelected({
-            address,
-            coordinates: {
-              lat, lng
-            }
-          });
-        });
+      this.geocodeAndSelect(lat, lng);
     });
 
     var searchControl = L.control.photon(this.photonOptions);
@@ -101,13 +91,34 @@ class StadtnaviLocationSelector {
 
   onSearchResultSelected(feature) {
     const bounds = feature.properties.extent;
-    this.map.fitBounds([
-      [bounds[1], bounds[0]],
-      [bounds[3], bounds[2]]
-    ]);
+    const [lng, lat] = feature.geometry.coordinates;
+    const latlng = {lat, lng};
 
-    const c = feature.geometry.coordinates;
-    this.setMarker({lat: c[1], lng: c[0]});
+    if(bounds) {
+      this.map.fitBounds([
+        [bounds[1], bounds[0]],
+        [bounds[3], bounds[2]]
+      ]);
+    } else {
+      this.map.setView(latlng);
+    }
+
+    this.geocodeAndSelect(lat, lng);
+  }
+
+  geocodeAndSelect(lat, lng) {
+    const marker = this.setMarker({lat, lng});
+    this.reverseGeocode(lat, lng)
+      .then(address => {
+        marker.bindPopup(address).openPopup();
+
+        this.mergedOptions.onLocationSelected({
+          address,
+          coordinates: {
+            lat, lng
+          }
+        });
+      });
   }
 
   computeOptions(options) {
