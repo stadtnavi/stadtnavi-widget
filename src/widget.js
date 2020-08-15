@@ -1,9 +1,12 @@
-class StadtnaviWidget {
+class StadtnaviLocationSelector {
 
   defaults = {
     tileUrl: "https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png",
-    center: [48.7840, 9.1829],
-    onLocationSelected: () => {}
+    tileSize: 256,
+    center: { lat: 48.7840, lng: 9.1829 },
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+    onLocationSelected: (location) => {}
   };
 
 
@@ -20,9 +23,9 @@ class StadtnaviWidget {
     var markers = [];
 
     L.tileLayer(mergedOptions.tileUrl, {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-      maxZoom: 18,
-      tileSize: 256
+      attribution: mergedOptions.attribution,
+      maxZoom: mergedOptions.maxZoom,
+      tileSize: mergedOptions.tileSize
     }).addTo(map);
 
     map.on("click", (e) => {
