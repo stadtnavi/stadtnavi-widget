@@ -11,7 +11,7 @@ module.exports = function(grunt) {
           'node_modules/leaflet/dist/leaflet-src.js',
           'src/**/*.js'
         ],
-        dest: 'dist/<%= pkg.name %>-latest.js'
+        dest: 'dist/latest/<%= pkg.name %>.js'
       }
     },
     copy: {
@@ -20,16 +20,28 @@ module.exports = function(grunt) {
         dest: 'dist/index.html',
       },
       version: {
-        src: 'dist/<%= pkg.name %>-latest.js',
-        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
+        src: 'dist/latest/<%= pkg.name %>.js',
+        dest: 'dist/<%= pkg.version %>/<%= pkg.name %>.js'
       },
       css: {
         src: 'node_modules/leaflet/dist/leaflet.css',
-        dest: 'dist/<%= pkg.name %>-latest.css'
+        dest: 'dist/latest/<%= pkg.name %>.css'
       },
       css_versioned: {
         src: 'node_modules/leaflet/dist/leaflet.css',
-        dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.css'
+        dest: 'dist/<%= pkg.version %>/<%= pkg.name %>.css'
+      },
+      images_latest: {
+        expand: true,
+        flatten: true,
+        src: 'node_modules/leaflet/dist/images/*',
+        dest: 'dist/latest/images/'
+      },
+      images_versioned: {
+        expand: true,
+        flatten: true,
+        src: 'node_modules/leaflet/dist/images/*',
+        dest: 'dist/<%= pkg.version %>/images/'
       },
     },
     watch: {
