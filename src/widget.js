@@ -14,32 +14,30 @@ class StadtnaviLocationSelector {
     url: "https://photon.stadtnavi.eu/api?",
     placeholder: "Suchen Sie nach einem Ort",
     //formatResult: this.formatResult.bind(this)
+    onSelected: this.onSearchResultSelected.bind(this)
   }
 
   constructor(divId, options) {
 
     const mergedOptions = this.computeOptions(options || {});
 
-    const map = L.map(divId, {
+    this.map = L.map(divId, {
       center: mergedOptions.center,
       zoom: 12
     });
 
 
-    var markers = [];
+    this.markers = [];
 
     L.tileLayer(mergedOptions.tileUrl, {
       attribution: mergedOptions.attribution,
       maxZoom: mergedOptions.maxZoom,
       tileSize: mergedOptions.tileSize
-    }).addTo(map);
+    }).addTo(this.map);
 
-    map.on("click", (e) => {
+    this.map.on("click", (e) => {
 
-      markers.forEach(m => map.removeLayer(m));
-      const marker = L.marker(e.latlng).addTo(map);
-      markers = [marker];
-
+      const marker = this.setMarker(e.latlng);
       const { lat, lng } = e.latlng;
 
       this.reverseGeocode(lat, lng)
@@ -56,8 +54,15 @@ class StadtnaviLocationSelector {
     });
 
     var searchControl = L.control.photon(this.photonOptions);
-    searchControl.addTo(map);
+    searchControl.addTo(this.map);
 
+  }
+
+  setMarker(latlng) {
+    this.markers.forEach(m => this.map.removeLayer(m));
+    const marker = L.marker(latlng).addTo(this.map);
+    this.markers = [marker];
+    return marker;
   }
 
   reverseGeocode(lat, lng) {
@@ -92,6 +97,17 @@ class StadtnaviLocationSelector {
   formatResult(feature, el) {
     const formatted = this.formatFeature(feature);
     el.textContent = formatted;
+  }
+
+  onSearchResultSelected(feature) {
+    const bounds = feature.properties.extent;
+    this.map.fitBounds([
+      [bounds[1], bounds[0]],
+      [bounds[3], bounds[2]]
+    ]);
+
+    const c = feature.geometry.coordinates;
+    this.setMarker({lat: c[1], lng: c[0]});
   }
 
   computeOptions(options) {
