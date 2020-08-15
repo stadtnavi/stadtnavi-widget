@@ -66,11 +66,14 @@ class StadtnaviLocationSelector {
   }
 
   formatFeature(feature) {
-    const { properties : { name, street, housenumber, postcode, city }} = feature;
+    const { properties : { name, street, housenumber, postcode, city, osm_key }} = feature;
 
     const secondPart = `${postcode} ${city}`;
 
-    if(street || name ) {
+    if(osm_key == "boundary"){
+      return name;
+    }
+    else if(street || name) {
       var firstPart = `${street} ${housenumber}`;
       if(!street && name) {
         firstPart = name;
