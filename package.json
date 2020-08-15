@@ -16,6 +16,7 @@
     "gulp": "^4.0.2"
   },
   "dependencies": {
-    "leaflet": "1.6.0"
+    "leaflet": "1.6.0",
+    "leaflet.photon": "^0.8.0"
   }
 }

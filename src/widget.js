@@ -10,6 +10,11 @@ class StadtnaviLocationSelector {
     reverseGeocode: this.reverseGeocode
   };
 
+  photonOptions = {
+    url: "https://photon.stadtnavi.eu/api?",
+    placeholder: "Suchen Sie nach einem Ort",
+    //formatResult: this.formatResult.bind(this)
+  }
 
   constructor(divId, options) {
 
@@ -49,16 +54,24 @@ class StadtnaviLocationSelector {
           });
         });
     });
+
+    var searchControl = L.control.photon(this.photonOptions);
+    searchControl.addTo(map);
+
   }
 
   reverseGeocode(lat, lng) {
     return fetch(`https://photon.stadtnavi.eu/reverse?lat=${lat}&lon=${lng}`)
       .then(response => response.json())
-      .then(this.formatAddress);
+      .then(this.formatAddress.bind(this));
   }
 
   formatAddress(geoJson) {
-    const { properties : { name, street, housenumber, postcode, city }} = geoJson.features[0];
+    return this.formatFeature(geoJson.features[0]);
+  }
+
+  formatFeature(feature) {
+    const { properties : { name, street, housenumber, postcode, city }} = feature;
 
     const secondPart = `${postcode} ${city}`;
 
@@ -74,6 +87,11 @@ class StadtnaviLocationSelector {
     } else {
       return secondPart;
     }
+  }
+
+  formatResult(feature, el) {
+    const formatted = this.formatFeature(feature);
+    el.textContent = formatted;
   }
 
   computeOptions(options) {

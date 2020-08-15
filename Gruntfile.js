@@ -3,15 +3,22 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      options: {
-        separator: ';'
-      },
+      options: { },
       dist: {
         src: [
           'node_modules/leaflet/dist/leaflet-src.js',
+          'node_modules/leaflet.photon/leaflet.photon.js',
           'src/**/*.js'
         ],
         dest: 'dist/latest/<%= pkg.name %>.js'
+      },
+      css: {
+        src: [
+          'node_modules/leaflet/dist/leaflet.css',
+          'node_modules/leaflet.photon/leaflet.photon.css',
+          'src/**/*.css'
+        ],
+        dest: 'dist/latest/<%= pkg.name %>.css'
       }
     },
     copy: {
@@ -24,11 +31,7 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.version %>/<%= pkg.name %>.js'
       },
       css: {
-        src: 'node_modules/leaflet/dist/leaflet.css',
-        dest: 'dist/latest/<%= pkg.name %>.css'
-      },
-      css_versioned: {
-        src: 'node_modules/leaflet/dist/leaflet.css',
+        src: 'dist/latest/<%= pkg.name %>.css',
         dest: 'dist/<%= pkg.version %>/<%= pkg.name %>.css'
       },
       images_latest: {
