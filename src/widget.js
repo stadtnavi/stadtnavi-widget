@@ -6,7 +6,8 @@ class StadtnaviLocationSelector {
     center: { lat: 48.7840, lng: 9.1829 },
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
     maxZoom: 18,
-    onLocationSelected: (location) => {}
+    onLocationSelected: (location) => {},
+    reverseGeocode: this.reverseGeocode
   };
 
 
@@ -59,15 +60,20 @@ class StadtnaviLocationSelector {
   formatAddress(geoJson) {
     const { properties : { name, street, housenumber, postcode, city }} = geoJson.features[0];
 
-    var firstPart = `${street} ${housenumber}`;
-    if(!street && name) {
-      firstPart = name;
-    } else if(!housenumber) {
-      firstPart = street;
-    }
+    const secondPart = `${postcode} ${city}`;
 
-    const address = `${firstPart}, ${postcode} ${city}`;
-    return address;
+    if(street || name ) {
+      var firstPart = `${street} ${housenumber}`;
+      if(!street && name) {
+        firstPart = name;
+      } else if(!housenumber) {
+        firstPart = street;
+      }
+
+      return `${firstPart}, ${secondPart}`;
+    } else {
+      return secondPart;
+    }
   }
 
   computeOptions(options) {
