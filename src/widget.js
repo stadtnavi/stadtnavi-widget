@@ -48,11 +48,21 @@ class StadtnaviLocationSelector {
     searchControl.addTo(this.map);
 
     // add locate-me control
-    var locateControl = L.control.locate({
+    this.locateControl = L.control.locate({
       icon: "icon-location",
       iconLoading: "icon-spinner animate-spin"
     });
-    locateControl.addTo(this.map);
+    this.locateControl.addTo(this.map);
+
+
+    this.map.on("locationfound", this.onLocationFound.bind(this));
+  }
+
+  onLocationFound(e) {
+    if(e.accuracy < 1000){
+      this.geocodeAndSelect(e.latitude, e.longitude)
+        .then(a => this.locateControl.stop());
+    }
   }
 
   setMarker(latlng) {
@@ -118,7 +128,7 @@ class StadtnaviLocationSelector {
 
   geocodeAndSelect(lat, lng) {
     const marker = this.setMarker({lat, lng});
-    this.reverseGeocode(lat, lng)
+    return this.reverseGeocode(lat, lng)
       .then(address => {
         marker.bindPopup(address).openPopup();
 
