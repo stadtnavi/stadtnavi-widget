@@ -28,11 +28,11 @@
   </head>
   <body>
     <main role="main" class="container">
-      <h1 class="mt-5">stadtnavi widget</h1>
+      <h1 class="mt-5">stadtnavi widget demos</h1>
       <p class="lead">Integrate stadtnavi into your own website.</p>
 
       <section>
-        <h2 class="mt-5">Demo</h2>
+        <h2 class="mt-5">Location selector</h2>
         <p>Location selector with default map style.</p>
 
         <pre></pre>
@@ -42,19 +42,34 @@
         <p>Click into the map to select a location.</p>
         <h2>Result</h2>
         <code id="result-1"> </code>
+        <script type="text/javascript">
+          new StadtnaviLocationSelector('widget-1', {
+            onLocationSelected: (location) => {
+              var str = JSON.stringify(location, null, 2);
+              document.getElementById("result-1").textContent = str;
+            }
+          });
+        </script>
+
+      </section>
+
+      <section style="display:none">
+        <h2 class="mt-5">Address box</h2>
+
+        <pre></pre>
+
+        <div id='widget-2' class="stadtnavi-widget"></div>
+
+        <h2>Result</h2>
+        <code id="result-1"> </code>
+        <script type="text/javascript">
+          new StadtnaviAddressBox('widget-2', "Bahnhofstrasse 14, 71139 Ehningen", {});
+        </script>
 
       </section>
     </main>
 
 
-    <script type="text/javascript">
-      new StadtnaviLocationSelector('widget-1', {
-        onLocationSelected: (location) => {
-          var str = JSON.stringify(location, null, 2);
-          document.getElementById("result-1").textContent = str;
-        }
-      });
-    </script>
   </body>
 
 </html>
