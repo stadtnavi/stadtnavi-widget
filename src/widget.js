@@ -13,10 +13,12 @@ class StadtnaviLocationSelector {
   photonOptions = {
     url: "https://photon.stadtnavi.eu/api?",
     placeholder: "Suchen Sie nach einem Ort",
-    //formatResult: this.formatResult.bind(this)
+    formatResult: this.formatSearchResult.bind(this),
     onSelected: this.onSearchResultSelected.bind(this),
     lang: "de",
-    feedbackEmail: null
+    feedbackEmail: null,
+    noResultLabel: "Keine Ergebnisse",
+    osm_tag: "!highway:motorway_junction"
   }
 
   constructor(divId, options) {
@@ -77,10 +79,10 @@ class StadtnaviLocationSelector {
   reverseGeocode(lat, lng) {
     return fetch(`https://photon.stadtnavi.eu/reverse?lat=${lat}&lon=${lng}`)
       .then(response => response.json())
-      .then(this.formatAddress.bind(this));
+      .then(this.formatPhotonResponse.bind(this));
   }
 
-  formatAddress(geoJson) {
+  formatPhotonResponse(geoJson) {
     return this.formatFeature(geoJson.features[0]);
   }
 
@@ -106,9 +108,25 @@ class StadtnaviLocationSelector {
     }
   }
 
-  formatResult(feature, el) {
-    const formatted = this.formatFeature(feature);
-    el.textContent = formatted;
+  formatSearchResult(feature, el) {
+    const { properties : { name, street, housenumber, postcode, city, country, osm_key }} = feature;
+
+    var title = L.DomUtil.create('strong', '', el),
+      detailsContainer = L.DomUtil.create('small', '', el),
+      details = [];
+    if (name) {
+      title.textContent = name;
+    } else if (housenumber) {
+      if (street) {
+        title.textContent += street;
+      }
+      title.textContent += `, ${housenumber}`;
+    }
+    if (city && city !== name) {
+      details.push(city);
+    }
+    if (country) details.push(country);
+    detailsContainer.textContent = details.join(', ');
   }
 
   onSearchResultSelected(feature) {
@@ -128,6 +146,12 @@ class StadtnaviLocationSelector {
     const marker = this.setMarker({lat, lng});
     const address = this.formatFeature(feature);
     marker.bindPopup(address).openPopup();
+    this.mergedOptions.onLocationSelected({
+      address,
+      coordinates: {
+        lat, lng
+      }
+    });
   }
 
   geocodeAndSelect(lat, lng) {
