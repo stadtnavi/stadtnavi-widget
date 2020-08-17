@@ -1,17 +1,16 @@
 class StadtnaviLocationSelector {
 
   defaults = {
-    tileUrl: "https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png",
-    tileSize: 256,
-    center: { lat: 48.7840, lng: 9.1829 },
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-    maxZoom: 18,
-    onLocationSelected: (location) => {},
-    reverseGeocode: this.reverseGeocode
+    ... {
+      center: { lat: 48.7840, lng: 9.1829 },
+      onLocationSelected: (location) => {},
+      reverseGeocode: this.reverseGeocode
+    },
+    ... Stadtnavi.tileDefaults
   };
 
   photonOptions = {
-    url: "https://photon.stadtnavi.eu/api?",
+    url: `${Stadtnavi.photonUrl}/api?`,
     placeholder: "Suchen Sie nach einem Ort",
     formatResult: this.formatSearchResult.bind(this),
     onSelected: this.onSearchResultSelected.bind(this),
@@ -77,7 +76,7 @@ class StadtnaviLocationSelector {
   }
 
   reverseGeocode(lat, lng) {
-    return fetch(`https://photon.stadtnavi.eu/reverse?lat=${lat}&lon=${lng}`)
+    return fetch(`${Stadtnavi.photonUrl}/reverse?lat=${lat}&lon=${lng}`)
       .then(response => response.json())
       .then(this.formatPhotonResponse.bind(this));
   }
