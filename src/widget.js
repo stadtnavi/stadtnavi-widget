@@ -43,9 +43,16 @@ class StadtnaviLocationSelector {
       this.geocodeAndSelect(lat, lng);
     });
 
+    // add search control
     var searchControl = L.control.photon(this.photonOptions);
     searchControl.addTo(this.map);
 
+    // add locate-me control
+    var locateControl = L.control.locate({
+      icon: "icon-location",
+      iconLoading: "icon-spinner animate-spin"
+    });
+    locateControl.addTo(this.map);
   }
 
   setMarker(latlng) {

@@ -8,6 +8,7 @@ module.exports = function(grunt) {
         src: [
           'node_modules/leaflet/dist/leaflet-src.js',
           'node_modules/leaflet.photon/leaflet.photon.js',
+          'node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.js',
           'src/**/*.js'
         ],
         dest: 'dist/latest/<%= pkg.name %>.js'
@@ -16,6 +17,7 @@ module.exports = function(grunt) {
         src: [
           'node_modules/leaflet/dist/leaflet.css',
           'node_modules/leaflet.photon/leaflet.photon.css',
+          'node_modules/leaflet.locatecontrol/dist/L.Control.Locate.css',
           'src/**/*.css'
         ],
         dest: 'dist/latest/<%= pkg.name %>.css'

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "leaflet": "1.6.0",
-    "leaflet.photon": "^0.8.0"
+    "leaflet.locatecontrol": "0.72.0",
+    "leaflet.photon": "0.8.0"
   }
 }
