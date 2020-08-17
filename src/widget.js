@@ -14,7 +14,9 @@ class StadtnaviLocationSelector {
     url: "https://photon.stadtnavi.eu/api?",
     placeholder: "Suchen Sie nach einem Ort",
     //formatResult: this.formatResult.bind(this)
-    onSelected: this.onSearchResultSelected.bind(this)
+    onSelected: this.onSearchResultSelected.bind(this),
+    lang: "de",
+    feedbackEmail: null
   }
 
   constructor(divId, options) {
@@ -123,7 +125,9 @@ class StadtnaviLocationSelector {
       this.map.setView(latlng);
     }
 
-    this.geocodeAndSelect(lat, lng);
+    const marker = this.setMarker({lat, lng});
+    const address = this.formatFeature(feature);
+    marker.bindPopup(address).openPopup();
   }
 
   geocodeAndSelect(lat, lng) {
