@@ -27,7 +27,7 @@ class StadtnaviLocationSelector {
 
     this.map = L.map(divId, {
       center: mergedOptions.center,
-      zoom: 12,
+      zoom: 12
     });
 
     this.map.attributionControl.setPrefix(false);
@@ -42,9 +42,7 @@ class StadtnaviLocationSelector {
     }).addTo(this.map);
 
     this.map.on("click", (e) => {
-
       const { lat, lng } = e.latlng;
-
       this.geocodeAndSelect(lat, lng);
     });
 
@@ -72,7 +70,7 @@ class StadtnaviLocationSelector {
 
   setMarker(latlng) {
     this.markers.forEach(m => this.map.removeLayer(m));
-    const marker = L.marker(latlng).addTo(this.map);
+    const marker = Stadtnavi.marker(latlng).addTo(this.map);
     this.markers = [marker];
     return marker;
   }

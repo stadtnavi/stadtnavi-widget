@@ -45,7 +45,8 @@ class StadtnaviAddressBox {
 
     const map = L.map(divId, {
       center: mergedOptions.center,
-      zoom: 16
+      zoom: 16,
+      scrollWheelZoom: 'center'
     });
 
     L.tileLayer(mergedOptions.tileUrl, {
@@ -55,6 +56,9 @@ class StadtnaviAddressBox {
     }).addTo(map);
 
     map.zoomControl.setPosition('topright');
+    map.attributionControl.setPrefix(false);
+    map.dragging.disable();
+
 
     fetch(`${Stadtnavi.photonUrl}/api?q=${address}`)
       .then(r => r.json())
@@ -64,7 +68,7 @@ class StadtnaviAddressBox {
         latLng.reverse();
         map.setView(latLng)
 
-        L.marker(latLng).addTo(map);
+        Stadtnavi.marker(latLng).addTo(map);
         L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address }).addTo(map);
       });
   }

@@ -9,6 +9,7 @@ module.exports = function(grunt) {
           'node_modules/leaflet/dist/leaflet-src.js',
           'node_modules/leaflet.photon/leaflet.photon.js',
           'node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.js',
+          'vendor/**/*.js',
           'src/address-box.js',
           'src/**/*.js'
         ],
