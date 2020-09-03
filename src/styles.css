@@ -1,0 +1,7 @@
+.stadtnavi-address-box {
+  background: white;
+  padding: 10px;
+  border-radius: 2px;
+
+  filter: drop-shadow(3px 1px 4px #3e3f3a);
+}
