@@ -12,6 +12,36 @@ Demo: https://stadtnavi.github.io/stadtnavi-widget/
 
 There are two widgets available:
 
+#### `StadtnaviAddressBox`
+
+Displays a map preview of an arbitrary address in Baden-Württemberg and a link
+to the pre-filled stadtnavi application so that a route search can be started easily.
+
+To use it create a `<div>`, give it an ID and at least 100px height and execute the following JS:
+```js
+new StadtnaviAddressBox(divId, title, address, options);
+```
+
+#### Arguments
+
+- `divId`: ID of the `<div>` element into which the map is placed.
+
+#### Options
+
+The widget works without any configuration but if you want override some values, you 
+can pass `options` as a JSON object with the following possible keys:
+
+- `tileUrl`: Leaflet-compatible URL for the background map.  
+  Default: `https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png`  
+  *Note*: If you want to use the stadtnavi tiles, your domain needs to be whitelisted. Please get in touch with
+  mitmachen@herrenberg.stadtnavi.de to have this done.
+- `tileSize`: What size the tiles have in pixels.  
+  Default: `256`
+- `attribution`: The information text at the bottom right corner of the map.  
+  Default: `Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors`
+- `maxZoom`: Maximum zoom level allowed.  
+  Default: 18
+
 #### `StadtnaviLocationSelector`
 
 Displays a map where users can select a location either by text search, clicking 
@@ -23,9 +53,6 @@ new StadtnaviLocationSelector(divId, options);
 ```
 
 #### Options
-
-The widget works without any configuration but if you want override some values, you 
-can pass `options` as a JSON object with the following possible keys:
 
 - `tileUrl`: Leaflet-compatible URL for the background map.  
   Default: `https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png`  
