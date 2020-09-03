@@ -8,7 +8,6 @@ Demo: https://stadtnavi.github.io/stadtnavi-widget/
 
 - Add latest CSS file to HTML page: `https://stadtnavi.github.io/stadtnavi-widget/${version}/stadtnavi-widget.css`
 - Add latest JS: `https://stadtnavi.github.io/stadtnavi-widget/${version}/stadtnavi-widget.js`
-- Create a container `<div>` and use CSS to give the div a height of at least `200px`.
 
 There are two widgets available:
 
@@ -17,7 +16,7 @@ There are two widgets available:
 Displays a map preview of an arbitrary address in Baden-Württemberg and a link
 to the pre-filled stadtnavi application so that a route search can be started easily.
 
-To use it create a `<div>`, give it an ID and at least 100px height and execute the following JS:
+To use it create a `<div>`, give it an ID and at least `200px` height and execute the following JS:
 ```js
 new StadtnaviAddressBox(divId, title, address, options);
 ```
