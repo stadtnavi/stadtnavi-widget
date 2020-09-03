@@ -2,7 +2,8 @@ L.Control.Address = L.Control.extend({
   onAdd: function(map) {
     const div = L.DomUtil.create('div');
     div.className = "stadtnavi-address-box";
-    const titleEl = L.DomUtil.create('h4');
+    const titleEl = L.DomUtil.create('div');
+    titleEl.className = "title";
     titleEl.textContent = this.options.title;
     div.appendChild(titleEl);
 
@@ -14,7 +15,7 @@ L.Control.Address = L.Control.extend({
     div.appendChild(addressLine);
 
     const getRoute = L.DomUtil.create('a');
-    getRoute.textContent = "Routenvorschlag auf stadtnavi"
+    getRoute.textContent = "Route auf stadtnavi suchen"
     getRoute.href = `https://herrenberg.stadtnavi.de/-/${title}, ${address}::${lat},${lng}/indernaehe`;
     getRoute.target = "_blank";
     div.appendChild(getRoute);

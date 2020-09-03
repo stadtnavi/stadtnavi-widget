@@ -2,7 +2,16 @@
   background: white;
   padding: 10px;
   border-radius: 1px;
-
   max-width: 250px;
   filter: drop-shadow(1px 1px 3px #3e3f3a);
+}
+
+.stadtnavi-address-box .title {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.stadtnavi-address-box a {
+  margin-top: 15px;
+  display: block;
 }
