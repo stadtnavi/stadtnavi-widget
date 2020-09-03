@@ -9,7 +9,15 @@ Demo: https://stadtnavi.github.io/stadtnavi-widget/
 - Add latest CSS file to HTML page: `https://stadtnavi.github.io/stadtnavi-widget/${version}/stadtnavi-widget.css`
 - Add latest JS: `https://stadtnavi.github.io/stadtnavi-widget/${version}/stadtnavi-widget.js`
 - Create a container `<div>` and use CSS to give the div a height of at least `200px`.
-- Execute the following JS:
+
+There are two widgets available:
+
+#### `StadtnaviLocationSelector`
+
+Displays a map where users can select a location either by text search, clicking 
+into the map or by using the location API of their browser.
+
+To use it create a `<div>`, give it an ID and at least 100px height and execute the following JS:
 ```js
 new StadtnaviLocationSelector(divId, options);
 ```
