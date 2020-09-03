@@ -53,6 +53,9 @@ To use it create a `<div>`, give it an ID and at least 100px height and execute 
 ```js
 new StadtnaviLocationSelector(divId, options);
 ```
+#### Arguments
+
+- `divId`: ID of the `<div>` element into which the interactive map is placed.
 
 #### Options
 
