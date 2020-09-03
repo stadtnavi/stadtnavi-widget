@@ -2,13 +2,22 @@ L.Control.Address = L.Control.extend({
   onAdd: function(map) {
     const div = L.DomUtil.create('div');
     div.className = "stadtnavi-address-box";
-    const title = L.DomUtil.create('h4');
-    title.textContent = this.options.title;
-    div.appendChild(title);
+    const titleEl = L.DomUtil.create('h4');
+    titleEl.textContent = this.options.title;
+    div.appendChild(titleEl);
 
-    const address = L.DomUtil.create('div');
-    address.textContent = this.options.address;
-    div.appendChild(address);
+
+    const { title, address, lat, lng } = this.options;
+
+    const addressLine = L.DomUtil.create('div');
+    addressLine.textContent = this.options.address;
+    div.appendChild(addressLine);
+
+    const getRoute = L.DomUtil.create('a');
+    getRoute.textContent = "Routenvorschlag auf stadtnavi"
+    getRoute.href = `https://herrenberg.stadtnavi.de/-/${title}, ${address}::${lat},${lng}/indernaehe`;
+    getRoute.target = "_blank";
+    div.appendChild(getRoute);
 
     return div;
   },
@@ -56,7 +65,7 @@ class StadtnaviAddressBox {
         map.setView(latLng)
 
         L.marker(latLng).addTo(map);
-        L.control.address({ position: 'topleft', title, address }).addTo(map);
+        L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address }).addTo(map);
       });
   }
 

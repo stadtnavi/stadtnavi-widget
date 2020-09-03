@@ -27,8 +27,10 @@ class StadtnaviLocationSelector {
 
     this.map = L.map(divId, {
       center: mergedOptions.center,
-      zoom: 12
+      zoom: 12,
     });
+
+    this.map.attributionControl.setPrefix(false);
 
 
     this.markers = [];
