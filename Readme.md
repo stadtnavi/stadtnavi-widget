@@ -24,7 +24,9 @@ new StadtnaviAddressBox(divId, title, address, options);
 
 #### Arguments
 
-- `divId`: ID of the `<div>` element into which the map is placed.
+- `divId`: ID of the `<div>` element into which the interactive map is placed.
+- `title`: Name of the place for which the address box is for. This can be choosen freely and is used only for display purposes.
+- `address`: A full address with street name, house number, postal code and city. This is used for geolocating the place on the map so precise information is required.
 
 #### Options
 
