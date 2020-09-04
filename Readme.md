@@ -40,6 +40,10 @@ can pass `options` as a JSON object with the following possible keys:
   Default: `256`
 - `attribution`: The information text at the bottom right corner of the map.  
   Default: `Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors`
+- `pinPrimaryColor`: Fill color of the map marker.
+  Default: #f8dd14"
+- `pinSecondaryColor`: Border color of the map marker
+  Default: #000000"
 - `maxZoom`: Maximum zoom level allowed.  
   Default: 18
 
@@ -70,6 +74,10 @@ new StadtnaviLocationSelector(divId, options);
   Default: `Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors`
 - `maxZoom`: Maximum zoom level allowed.  
   Default: 18
+- `pinPrimaryColor`: Fill color of the map marker.
+  Default: #f8dd14"
+- `pinSecondaryColor`: Border color of the map marker
+  Default: #000000"
 - `onLocationSelected`: Function that takes a single argument with the location selected by the user.  
   Default: `(location) => {}`
 - `reverseGeocode`: Function that takes two arguments `lat` and `lng` and returns a `Promise` of a formatted address.  
