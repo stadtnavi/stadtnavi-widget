@@ -36,7 +36,7 @@ class StadtnaviAddressBox {
     ... {
       center: { lat: 48.7840, lng: 9.1829 },
     },
-    ... Stadtnavi.tileDefaults
+    ... Stadtnavi.defaultOptions
   };
 
   constructor(divId, title, address, options) {
@@ -69,7 +69,7 @@ class StadtnaviAddressBox {
         latLng.reverse();
         map.setView(latLng)
 
-        Stadtnavi.marker(latLng).addTo(map);
+        Stadtnavi.marker(latLng, mergedOptions).addTo(map);
         L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address }).addTo(map);
       });
   }

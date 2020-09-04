@@ -6,7 +6,7 @@ class StadtnaviLocationSelector {
       onLocationSelected: (location) => {},
       reverseGeocode: this.reverseGeocode
     },
-    ... Stadtnavi.tileDefaults
+    ... Stadtnavi.defaultOptions
   };
 
   photonOptions = {
@@ -31,7 +31,6 @@ class StadtnaviLocationSelector {
     });
 
     this.map.attributionControl.setPrefix(false);
-
 
     this.markers = [];
 
@@ -70,7 +69,7 @@ class StadtnaviLocationSelector {
 
   setMarker(latlng) {
     this.markers.forEach(m => this.map.removeLayer(m));
-    const marker = Stadtnavi.marker(latlng).addTo(this.map);
+    const marker = Stadtnavi.marker(latlng, this.mergedOptions).addTo(this.map);
     this.markers = [marker];
     return marker;
   }

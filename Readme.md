@@ -72,5 +72,5 @@ new StadtnaviLocationSelector(divId, options);
   Default: 18
 - `onLocationSelected`: Function that takes a single argument with the location selected by the user.  
   Default: `(location) => {}`
-- `reverseGeocode`: Function that takes two arguments `lat` and `lng` and returns a promise of a formatted address.  
+- `reverseGeocode`: Function that takes two arguments `lat` and `lng` and returns a `Promise` of a formatted address.  
   Default: An implementation that uses the stadtnavi reverse geocoder.
