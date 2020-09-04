@@ -3,7 +3,7 @@
   padding: 10px;
   border-radius: 1px;
   max-width: 250px;
-  filter: drop-shadow(1px 1px 3px #3e3f3a);
+  box-shadow: rgba(0, 0, 0, 0.2) 1.5px 2.6px 10px 0px
 }
 
 .stadtnavi-address-box .title {
@@ -14,4 +14,23 @@
 .stadtnavi-address-box a {
   margin-top: 15px;
   display: block;
+}
+
+.photon-input {
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 1.5px 2.6px 10px 0px
+}
+
+.photon-autocomplete {
+  padding: 0;
+}
+
+.photon-autocomplete li.on {
+  background-color: #dfe5e8
+}
+
+.photon-input, .photon-input:focus {
+  width: 250px;
 }
