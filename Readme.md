@@ -1,13 +1,13 @@
 ## stadtnavi widget
 
-Demo: https://stadtnavi.github.io/stadtnavi-widget/
+Demo: https://tiles.stadtnavi.eu/widget/
 
 ### Usage
 
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/stadtnavi/stadtnavi-widget?label=latest%20version)
 
-- Add latest CSS file to HTML page: `https://stadtnavi.github.io/stadtnavi-widget/${version}/stadtnavi-widget.css`
-- Add latest JS: `https://stadtnavi.github.io/stadtnavi-widget/${version}/stadtnavi-widget.js`
+- Add latest CSS file to HTML page: `https://tiles.stadtnavi.eu/widget/${version}/stadtnavi-widget.css`
+- Add latest JS: `https://tiles.stadtnavi.eu/widget/${version}/stadtnavi-widget.js`
 
 There are two widgets available:
 
