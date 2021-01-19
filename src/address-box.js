@@ -32,14 +32,15 @@ L.control.address = function(opts) {
 
 class StadtnaviAddressBox {
 
-  defaults = {
-    ... {
-      center: { lat: 48.7840, lng: 9.1829 },
-    },
-    ... Stadtnavi.defaultOptions
-  };
-
   constructor(divId, title, address, options) {
+
+    this.defaults = {
+      ... {
+        center: { lat: 48.7840, lng: 9.1829 },
+      },
+      ... Stadtnavi.defaultOptions
+    };
+
 
     this.mergedOptions = this.computeOptions(options || {});
     const mergedOptions = this.mergedOptions;

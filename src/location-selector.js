@@ -1,26 +1,26 @@
 class StadtnaviLocationSelector {
 
-  defaults = {
-    ... {
-      center: { lat: 48.7840, lng: 9.1829 },
-      onLocationSelected: (location) => {},
-      reverseGeocode: this.reverseGeocode
-    },
-    ... Stadtnavi.defaultOptions
-  };
-
-  photonOptions = {
-    url: `${Stadtnavi.photonUrl}/api?`,
-    placeholder: "Suchen Sie nach einem Ort",
-    formatResult: this.formatSearchResult.bind(this),
-    onSelected: this.onSearchResultSelected.bind(this),
-    lang: "de",
-    feedbackEmail: null,
-    noResultLabel: "Keine Ergebnisse",
-    osm_tag: "!highway:motorway_junction"
-  }
-
   constructor(divId, options) {
+    this.defaults = {
+      ... {
+        center: { lat: 48.7840, lng: 9.1829 },
+        onLocationSelected: (location) => {},
+        reverseGeocode: this.reverseGeocode
+      },
+      ... Stadtnavi.defaultOptions
+    };
+
+    this.photonOptions = {
+      url: `${Stadtnavi.photonUrl}/api?`,
+      placeholder: "Suchen Sie nach einem Ort",
+      formatResult: this.formatSearchResult.bind(this),
+      onSelected: this.onSearchResultSelected.bind(this),
+      lang: "de",
+      feedbackEmail: null,
+      noResultLabel: "Keine Ergebnisse",
+      osm_tag: "!highway:motorway_junction"
+    }
+
 
     this.mergedOptions = this.computeOptions(options || {});
     const mergedOptions = this.mergedOptions;
