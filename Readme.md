@@ -87,3 +87,20 @@ new StadtnaviLocationSelector(divId, options);
   Default: `(location) => {}`
 - `reverseGeocode`: Function that takes two arguments `lat` and `lng` and returns a `Promise` of a formatted address.  
   Default: An implementation that uses the stadtnavi reverse geocoder.
+
+### Development
+
+To develop this widget, you should install the required packages via 
+
+```sh
+npm install
+```
+
+To generate the dist and test locally, run
+
+```sh
+grunt
+```
+
+When pushing to the main branch, a new version is published via github actions at https://tiles.stadtnavi.eu/widget/.
+
