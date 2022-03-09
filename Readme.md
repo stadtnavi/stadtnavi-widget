@@ -104,3 +104,5 @@ grunt
 
 When pushing to the main branch, a new version is published via github actions at https://tiles.stadtnavi.eu/widget/.
 
+If you push a git tag a new release with a stable release is automatically created.
+
