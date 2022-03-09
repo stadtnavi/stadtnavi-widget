@@ -46,6 +46,11 @@ can pass `options` as a JSON object with the following possible keys:
   Default: `#000000`
 - `maxZoom`: Maximum zoom level allowed.  
   Default: 18
+- `stadtnaviLinkText`: Link text shown for routing link
+  Default: `Route auf stadtnavi suchen`
+- `stadtnaviBaseUrl`: Base URL of stadtnavi instance used for routing link
+  Default: `https://herrenberg.stadtnavi.de/`
+
 
 #### `StadtnaviLocationSelector`
 
@@ -82,3 +87,20 @@ new StadtnaviLocationSelector(divId, options);
   Default: `(location) => {}`
 - `reverseGeocode`: Function that takes two arguments `lat` and `lng` and returns a `Promise` of a formatted address.  
   Default: An implementation that uses the stadtnavi reverse geocoder.
+
+### Development
+
+To develop this widget, you should install the required packages via 
+
+```sh
+npm install
+```
+
+To generate the dist and test locally, run
+
+```sh
+grunt
+```
+
+When pushing to the main branch, a new version is published via github actions at https://tiles.stadtnavi.eu/widget/.
+
