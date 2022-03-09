@@ -15,8 +15,8 @@ L.Control.Address = L.Control.extend({
     div.appendChild(addressLine);
 
     const getRoute = L.DomUtil.create('a');
-    getRoute.textContent = "Route auf stadtnavi suchen"
-    getRoute.href = `https://herrenberg.stadtnavi.de/-/${title}, ${address}::${lat},${lng}/indernaehe`;
+    getRoute.textContent = this.options.stadtnaviLinkText
+    getRoute.href = `${this.options.stadtnaviBaseUrl}-/${title}, ${address}::${lat},${lng}/indernaehe`;
     getRoute.target = "_blank";
     div.appendChild(getRoute);
 
@@ -71,7 +71,8 @@ class StadtnaviAddressBox {
         map.setView(latLng)
 
         Stadtnavi.marker(latLng, mergedOptions).addTo(map);
-        L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address }).addTo(map);
+        L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address, 
+          stadtnaviLinkText: mergedOptions.stadtnaviLinkText, stadtnaviBaseUrl: mergedOptions.stadtnaviBaseUrl }).addTo(map);
       });
   }
 

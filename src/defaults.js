@@ -7,7 +7,9 @@ const Stadtnavi = {
     attribution: 'Kartendaten &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> Mitwirkende',
     maxZoom: 18,
     pinPrimaryColor: "#f8dd14",
-    pinSecondaryColor: "#000000"
+    pinSecondaryColor: "#000000",
+    stadtnaviLinkText: "Route auf stadtnavi suchen",
+    stadtnaviBaseUrl: "https://herrenberg.stadtnavi.de/"
   },
 
   marker: (latlng, options) => {

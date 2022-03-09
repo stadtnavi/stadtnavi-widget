@@ -46,6 +46,11 @@ can pass `options` as a JSON object with the following possible keys:
   Default: `#000000`
 - `maxZoom`: Maximum zoom level allowed.  
   Default: 18
+- `stadtnaviLinkText`: Link text shown for routing link
+  Default: `Route auf stadtnavi suchen`
+- `stadtnaviBaseUrl`: Base URL of stadtnavi instance used for routing link
+  Default: `https://herrenberg.stadtnavi.de/`
+
 
 #### `StadtnaviLocationSelector`
 
