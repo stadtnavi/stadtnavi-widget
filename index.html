@@ -110,18 +110,24 @@ new StadtnaviAddressBox('widget-3', "Rathaus Bietigheim-Bissingen", "Marktplatz 
 
         <h4>JavaScript code</h4>
         <pre>
-new StadtnaviAddressBox('widget-4', "Bahnhof Biberach (Riß)", "Bahnhof 1, 88400 Biberach (Riß)", {
-  tileUrl: "https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png",
-  pinPrimaryColor: "#e031a3"
+new StadtnaviAddressBox('widget-4', "Bahnhof Angermünde", "Bahnhofsplatz, 16278 Angermünde", {
+  tileUrl: "https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}.png",
+  pinPrimaryColor: "#DA1B1B",
+  pinSecondaryColor: "#FFFFFF",
+  stadtnaviLinkText: "Route in bbnavi suchen",
+  stadtnaviBaseUrl: "https://angermuende.bbnavi.de/",
 });
         </pre>
 
         <div id='widget-4' class="stadtnavi-widget"></div>
 
         <script type="text/javascript">
-          new StadtnaviAddressBox('widget-4', "Bahnhof Biberach (Riß)", "Bahnhof 1, 88400 Biberach (Riß)", {
-            tileUrl: "https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png",
-            pinPrimaryColor: "#e031a3"
+          new StadtnaviAddressBox('widget-4', "Bahnhof Angermünde", "Bahnhofsplatz, 16278 Angermünde", {
+            tileUrl: "https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}.png",
+            pinPrimaryColor: "#DA1B1B",
+            pinSecondaryColor: "#FFFFFF",
+            stadtnaviLinkText: "Route in bbnavi suchen",
+            stadtnaviBaseUrl: "https://angermuende.bbnavi.de/",
           });
         </script>
 
