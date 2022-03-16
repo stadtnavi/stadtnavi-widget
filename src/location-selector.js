@@ -34,12 +34,8 @@ class StadtnaviLocationSelector {
 
     this.markers = [];
 
-    L.tileLayer(mergedOptions.tileUrl, {
-      attribution: mergedOptions.attribution,
-      maxZoom: mergedOptions.maxZoom,
-      tileSize: mergedOptions.tileSize
-    })
-      .addTo(this.map);
+    const l = Stadtnavi.tileLayer(mergedOptions);
+    l.addTo(this.map);
 
     this.map.on("click", (e) => {
       const { lat, lng } = e.latlng;
