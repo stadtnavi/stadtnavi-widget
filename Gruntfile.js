@@ -30,6 +30,10 @@ module.exports = function(grunt) {
         src: 'src/demo.html',
         dest: 'dist/index.html',
       },
+      bootstrap: {
+        src: 'src/bootstrap.min.css',
+        dest: 'dist/bootstrap.min.css',
+      },
       version: {
         src: 'dist/latest/<%= pkg.name %>.js',
         dest: 'dist/<%= pkg.version %>/<%= pkg.name %>.js'
