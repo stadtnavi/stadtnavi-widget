@@ -32,7 +32,7 @@ new StadtnaviAddressBox(divId, title, address, options);
 The widget works without any configuration but if you want override some values, you 
 can pass `options` as a JSON object with the following possible keys:
 
-- `tileUrl`: Leaflet-compatible URL for the background map.  
+- `tileUrl`: Leaflet-compatible URL for the background map. Ignored if `wms` (see below) is configured instead.
   Default: `https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png`  
   *Note*: If you want to use the stadtnavi tiles, your domain needs to be whitelisted. Please get in touch with
   mitmachen@herrenberg.stadtnavi.de to have this done.
@@ -50,7 +50,12 @@ can pass `options` as a JSON object with the following possible keys:
   Default: `Route auf stadtnavi suchen`
 - `stadtnaviBaseUrl`: Base URL of stadtnavi instance used for routing link
   Default: `https://herrenberg.stadtnavi.de/`
-
+- `wms.url`: The URL of a WMS service to fetch map tiles from.
+  Default: `null`
+- `wms.layers`: Comma-separated list of layers for the map tiles
+  Default: `null`
+- `wms.format`: Image format to use
+  Default: `image/png`
 
 #### `StadtnaviLocationSelector`
 
@@ -67,7 +72,7 @@ new StadtnaviLocationSelector(divId, options);
 
 #### Options
 
-- `tileUrl`: Leaflet-compatible URL for the background map.  
+- `tileUrl`: Leaflet-compatible URL for the background map. Ignored if `wms` (see below) is configured instead.
   Default: `https://tiles.stadtnavi.eu/streets/{z}/{x}/{y}{r}.png`  
   *Note*: If you want to use the stadtnavi tiles, your domain needs to be whitelisted. Please get in touch with
   mitmachen@herrenberg.stadtnavi.de to have this done.
@@ -87,6 +92,12 @@ new StadtnaviLocationSelector(divId, options);
   Default: `(location) => {}`
 - `reverseGeocode`: Function that takes two arguments `lat` and `lng` and returns a `Promise` of a formatted address.  
   Default: An implementation that uses the stadtnavi reverse geocoder.
+- `wms.url`: The URL of a WMS service to fetch map tiles from.
+  Default: `null`
+- `wms.layers`: Comma-separated list of layers for the map tiles
+  Default: `null`
+- `wms.format`: Image format to use
+  Default: `image/png`
 
 ### Development
 
