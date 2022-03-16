@@ -32,7 +32,6 @@ const Stadtnavi = {
 
   tileLayer: (opts) => {
 
-    console.log(opts)
     if(opts.wms) {
       return L.tileLayer.wms(opts.wms.url, {
         layers: opts.wms.layers,
