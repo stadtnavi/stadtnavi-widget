@@ -106,14 +106,14 @@ new StadtnaviAddressBox('widget-3', "Rathaus Bietigheim-Bissingen", "Marktplatz 
 
       <section>
 
-        <h2 class="mt-5">Address box with custom map layout and pin color</h2>
+        <h2 class="mt-5">Address box with custom map tiles and pin color</h2>
 
         <h4>JavaScript code</h4>
         <pre>
 new StadtnaviAddressBox('widget-4', "Bahnhof Angermünde", "Bahnhofsplatz, 16278 Angermünde", {
   tileUrl: "https://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
   attribution: "Kartendaten:© <a href='https://sgx.geodatenzentrum.de/web_public/gdz/datenquellen/Datenquellen_TopPlusOpen.html'>Bundesamt für Kartographie und Geodäsie (2022)</a>",
-            pinPrimaryColor: "#DA1B1B",
+  pinPrimaryColor: "#DA1B1B",
   pinSecondaryColor: "#FFFFFF",
   stadtnaviLinkText: "Route in bbnavi suchen",
   stadtnaviBaseUrl: "https://angermuende.bbnavi.de/",
@@ -134,6 +134,46 @@ new StadtnaviAddressBox('widget-4', "Bahnhof Angermünde", "Bahnhofsplatz, 16278
         </script>
 
       </section>
+
+      <section>
+
+        <h2 class="mt-5">Address box with WMS tiles and custom color</h2>
+
+        <h4>JavaScript code</h4>
+        <pre>
+new StadtnaviAddressBox('widget-5', "Bahnhof Angermünde", "Bahnhofsplatz, 16278 Angermünde", {
+  wms: {
+    url: "https://isk.geobasis-bb.de/mapproxy/webatlasde_topplus/service/wms",
+    layers: "webatlastopplusopen_farbe",
+    format: "image/png"
+  },
+  attribution: "© GeoBasis-DE/LGB, dl-de/by-2-0, © Geoportal Berlin, dl-de/by-2-0, © BKG",
+  pinPrimaryColor: "#DA1B1B",
+  pinSecondaryColor: "#FFFFFF",
+  stadtnaviLinkText: "Route in bbnavi suchen",
+  stadtnaviBaseUrl: "https://angermuende.bbnavi.de/",
+});
+        </pre>
+
+        <div id='widget-5' class="stadtnavi-widget"></div>
+
+        <script type="text/javascript">
+          new StadtnaviAddressBox('widget-5', "Bahnhof Angermünde", "Bahnhofsplatz, 16278 Angermünde", {
+            wms: {
+              url: "https://isk.geobasis-bb.de/mapproxy/webatlasde_topplus/service/wms",
+              layers: "webatlastopplusopen_farbe",
+              format: "image/png"
+            },
+            attribution: "© GeoBasis-DE/LGB, dl-de/by-2-0, © Geoportal Berlin, dl-de/by-2-0, © BKG",
+            pinPrimaryColor: "#DA1B1B",
+            pinSecondaryColor: "#FFFFFF",
+            stadtnaviLinkText: "Route in bbnavi suchen",
+            stadtnaviBaseUrl: "https://angermuende.bbnavi.de/",
+          });
+        </script>
+
+      </section>
+
     </main>
 
 

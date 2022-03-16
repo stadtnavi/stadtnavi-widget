@@ -38,7 +38,8 @@ class StadtnaviLocationSelector {
       attribution: mergedOptions.attribution,
       maxZoom: mergedOptions.maxZoom,
       tileSize: mergedOptions.tileSize
-    }).addTo(this.map);
+    })
+      .addTo(this.map);
 
     this.map.on("click", (e) => {
       const { lat, lng } = e.latlng;

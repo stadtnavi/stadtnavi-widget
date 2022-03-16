@@ -51,11 +51,8 @@ class StadtnaviAddressBox {
       scrollWheelZoom: 'center'
     });
 
-    L.tileLayer(mergedOptions.tileUrl, {
-      attribution: mergedOptions.attribution,
-      maxZoom: mergedOptions.maxZoom,
-      tileSize: mergedOptions.tileSize
-    }).addTo(map);
+    const layer = Stadtnavi.tileLayer(mergedOptions);
+    layer.addTo(map);
 
     map.zoomControl.setPosition('topright');
     map.attributionControl.setPrefix(false);
@@ -71,7 +68,7 @@ class StadtnaviAddressBox {
         map.setView(latLng)
 
         Stadtnavi.marker(latLng, mergedOptions).addTo(map);
-        L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address, 
+        L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address,
           stadtnaviLinkText: mergedOptions.stadtnaviLinkText, stadtnaviBaseUrl: mergedOptions.stadtnaviBaseUrl }).addTo(map);
       });
   }

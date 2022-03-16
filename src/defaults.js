@@ -9,7 +9,8 @@ const Stadtnavi = {
     pinPrimaryColor: "#f8dd14",
     pinSecondaryColor: "#000000",
     stadtnaviLinkText: "Route auf stadtnavi suchen",
-    stadtnaviBaseUrl: "https://herrenberg.stadtnavi.de/"
+    stadtnaviBaseUrl: "https://herrenberg.stadtnavi.de/",
+    wms: null
   },
 
   marker: (latlng, options) => {
@@ -26,5 +27,27 @@ const Stadtnavi = {
       circleRatio: 0.2
 
     }});
+  },
+
+
+  tileLayer: (opts) => {
+
+    console.log(opts)
+    if(opts.wms) {
+      return L.tileLayer.wms(opts.wms.url, {
+        layers: opts.wms.layers,
+        format: opts.wms.format || 'image/png',
+        transparent: false,
+        attribution: opts.attribution
+      });
+    }
+    else {
+      return L.tileLayer(opts.tileUrl, {
+        attribution: opts.attribution,
+        maxZoom: opts.maxZoom,
+        tileSize: opts.tileSize
+      })
+    }
   }
+
 }
