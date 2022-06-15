@@ -80,3 +80,12 @@
     width: 18rem;
   }
 }
+
+.tiny-route-widget .autoComplete_wrapper {
+  padding: 8px 0;
+  width: 100%;
+}
+
+.tiny-route-widget .autoComplete_wrapper input {
+  width: 100%;
+}
