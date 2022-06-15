@@ -69,6 +69,14 @@ module.exports = function(grunt) {
         src: 'node_modules/leaflet/dist/images/*',
         dest: 'dist/<%= pkg.version %>/images/'
       },
+      tinyjs: {
+        src: 'dist/latest/tiny-widget.js',
+        dest: 'dist/<%= pkg.version %>/tiny-widget.js'
+      },
+      tinycss: {
+        src: 'dist/latest/tiny-widget.css',
+        dest: 'dist/<%= pkg.version %>/tiny-widget.css'
+      },
     },
     watch: {
       files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.css', 'src/**/*.html', 'test/**/*.js'],
