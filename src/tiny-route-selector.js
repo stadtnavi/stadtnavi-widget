@@ -62,6 +62,11 @@ class TinyRouteSelector {
     const container = document.getElementById(divId);
     container.className = "tiny-route-widget";
 
+    const h1 = document.createElement('h3');
+    h1.textContent = "Route in BBNavi suchen"
+    container.appendChild(h1);
+
+
     var start = this.makeAutoComplete(container, "Startort eingeben");
     var end = this.makeAutoComplete(container, "Zielort eingeben");
 
@@ -73,7 +78,7 @@ class TinyRouteSelector {
     button.onclick = () => {
       const first = this.toUrlPart(start.selection);
       const second = this.toUrlPart(end.selection);
-      window.open(`https://angermuende.bbnavi.de/${first}/${second}`)
+      window.open(`https://herzberg-elster.bbnavi.de/${first}/${second}`)
     };
   }
 }
