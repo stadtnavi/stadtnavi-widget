@@ -635,7 +635,7 @@
 
 }));
 
-class TinyAddressBox {
+class TinyRouteSelector {
 
   makeAutoComplete(parent, placeholder) {
     const div = document.createElement('div');
@@ -697,6 +697,7 @@ class TinyAddressBox {
   constructor(divId, options) {
 
     const container = document.getElementById(divId);
+    container.className = "tiny-route-widget";
 
     var start = this.makeAutoComplete(container, "Startort eingeben");
     var end = this.makeAutoComplete(container, "Zielort eingeben");
