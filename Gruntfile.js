@@ -11,7 +11,8 @@ module.exports = function(grunt) {
           'node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.js',
           'vendor/**/*.js',
           'src/address-box.js',
-          'src/**/*.js'
+          'src/**/*.js',
+          '!src/tiny-address-box.js'
         ],
         dest: 'dist/latest/<%= pkg.name %>.js'
       },
@@ -23,6 +24,19 @@ module.exports = function(grunt) {
           'src/**/*.css'
         ],
         dest: 'dist/latest/<%= pkg.name %>.css'
+      },
+      tinyjs: {
+        src: [
+          'node_modules/@tarekraafat/autocomplete.js/dist/autoComplete.js',
+          'src/tiny-address-box.js'
+        ],
+        dest: 'dist/latest/tiny-widget.js'
+      },
+      tinycss: {
+        src: [
+          'node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.css'
+        ],
+        dest: 'dist/latest/tiny-widget.css'
       }
     },
     copy: {

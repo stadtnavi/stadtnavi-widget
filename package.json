@@ -16,6 +16,7 @@
     "gulp": "^4.0.2"
   },
   "dependencies": {
+    "@tarekraafat/autocomplete.js": "^10.2.7",
     "leaflet": "1.6.0",
     "leaflet.locatecontrol": "0.72.0",
     "leaflet.photon": "0.8.0"
