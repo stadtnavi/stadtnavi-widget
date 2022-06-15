@@ -12,7 +12,7 @@ module.exports = function(grunt) {
           'vendor/**/*.js',
           'src/address-box.js',
           'src/**/*.js',
-          '!src/tiny-address-box.js'
+          '!src/tiny-route-selector.js'
         ],
         dest: 'dist/latest/<%= pkg.name %>.js'
       },
@@ -28,15 +28,15 @@ module.exports = function(grunt) {
       tinyjs: {
         src: [
           'node_modules/@tarekraafat/autocomplete.js/dist/autoComplete.js',
-          'src/tiny-address-box.js'
+          'src/tiny-route-selector.js'
         ],
         dest: 'dist/latest/tiny-widget.js'
       },
       tinycss: {
         src: [
-          'node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.css'
+          'node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css'
         ],
-        dest: 'dist/latest/tiny-widget.css'
+        dest: 'dist/latest/tiny-route-selector.css'
       }
     },
     copy: {
