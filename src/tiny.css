@@ -6,3 +6,7 @@
 .tiny-route-widget .autoComplete_wrapper input {
   width: 100%;
 }
+
+.tiny-route-widget .btn.submit {
+  float: right;
+}

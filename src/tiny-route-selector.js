@@ -66,24 +66,28 @@ class TinyRouteSelector {
     h1.textContent = "Route in BBNavi suchen"
     container.appendChild(h1);
 
-
     var start = this.makeAutoComplete(container, "Startort eingeben");
     var end = this.makeAutoComplete(container, "Zielort eingeben");
 
     const datePicker = document.createElement('button');
     datePicker.textContent = "Abfahrt jetzt";
+    datePicker.className = "btn";
     container.appendChild(datePicker);
+
 
     flatpickr(datePicker, {
       enableTime: true,
       locale: "de",
+      dateFormat: "d.m.Y h:i",
       onChange: (selectedDates, dateStr, instance) => {
+        datePicker.textContent = dateStr;
         this.selectedDate = selectedDates[0];
       },
     });
 
     const button = document.createElement('button');
     button.textContent = "Route suchen"
+    button.className = "submit btn";
 
     container.appendChild(button);
 
