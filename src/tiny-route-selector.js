@@ -62,9 +62,12 @@ class TinyRouteSelector {
     const container = document.getElementById(divId);
     container.className = "tiny-route-widget";
 
-    const h1 = document.createElement('h3');
-    h1.textContent = "Route in BBNavi suchen"
-    container.appendChild(h1);
+    const header = document.createElement('header');
+
+    const h1 = document.createElement('img');
+    h1.src = "https://bbnavi.de/wp-content/uploads/2021/09/bbnavi-logo-weiss-transparent.png"
+    header.appendChild(h1);
+    container.appendChild(header);
 
     var start = this.makeAutoComplete(container, "Startort eingeben");
     var end = this.makeAutoComplete(container, "Zielort eingeben");
@@ -87,7 +90,7 @@ class TinyRouteSelector {
 
     const button = document.createElement('button');
     button.textContent = "Route suchen"
-    button.className = "submit btn";
+    button.className = "submit button";
 
     container.appendChild(button);
 

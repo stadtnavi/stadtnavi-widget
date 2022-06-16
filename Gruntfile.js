@@ -21,7 +21,8 @@ module.exports = function(grunt) {
           'node_modules/leaflet/dist/leaflet.css',
           'node_modules/leaflet.photon/leaflet.photon.css',
           'node_modules/leaflet.locatecontrol/dist/L.Control.Locate.css',
-          'src/**/*.css'
+          'src/**/*.css',
+          '!src/tiny.css'
         ],
         dest: 'dist/latest/<%= pkg.name %>.css'
       },
