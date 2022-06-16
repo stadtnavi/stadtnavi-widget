@@ -28,6 +28,8 @@ module.exports = function(grunt) {
       tinyjs: {
         src: [
           'node_modules/@tarekraafat/autocomplete.js/dist/autoComplete.js',
+          'node_modules/flatpickr/dist/flatpickr.js',
+          'node_modules/flatpickr/dist/l10n/de.js ',
           'src/tiny-route-selector.js'
         ],
         dest: 'dist/latest/tiny-widget.js'
@@ -35,6 +37,7 @@ module.exports = function(grunt) {
       tinycss: {
         src: [
           'node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css',
+          'node_modules/flatpickr/dist/flatpickr.css',
           'src/tiny.css'
         ],
         dest: 'dist/latest/tiny-widget.css'

@@ -70,15 +70,40 @@ class TinyRouteSelector {
     var start = this.makeAutoComplete(container, "Startort eingeben");
     var end = this.makeAutoComplete(container, "Zielort eingeben");
 
+    const datePicker = document.createElement('button');
+    datePicker.textContent = "Abfahrt jetzt";
+    container.appendChild(datePicker);
+
+    flatpickr(datePicker, {
+      enableTime: true,
+      locale: "de",
+      onChange: (selectedDates, dateStr, instance) => {
+        this.selectedDate = selectedDates[0];
+      },
+    });
+
     const button = document.createElement('button');
     button.textContent = "Route suchen"
 
     container.appendChild(button);
 
     button.onclick = () => {
+      var url = "https://herzberg-elster.bbnavi.de";
+
+      if(start.selection && end.selection && this.selectedDate) {
+        url = `${url}/reiseplan`;
+      }
+
       const first = this.toUrlPart(start.selection);
       const second = this.toUrlPart(end.selection);
-      window.open(`https://herzberg-elster.bbnavi.de/${first}/${second}`)
+
+
+      url = `${url}/${first}/${second}`;
+      if(this.selectedDate) {
+        const timestamp = this.selectedDate.getTime() / 1000;
+        url = `${url}?time=${timestamp}`;
+      }
+      window.open(encodeURI(url));
     };
   }
 }
