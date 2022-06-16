@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           'node_modules/@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css',
           'src/tiny.css'
         ],
-        dest: 'dist/latest/tiny-route-selector.css'
+        dest: 'dist/latest/tiny-widget.css'
       }
     },
     copy: {
