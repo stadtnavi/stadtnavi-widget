@@ -83,7 +83,7 @@ class TinyRouteSelector {
     flatpickr(datePicker, {
       enableTime: true,
       locale: "de",
-      dateFormat: "d.m.Y h:i",
+      dateFormat: "d.m.Y H:i",
       onChange: (selectedDates, dateStr, instance) => {
         datePicker.textContent = dateStr;
         this.selectedDate = selectedDates[0];
