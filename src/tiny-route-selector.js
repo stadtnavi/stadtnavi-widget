@@ -1,6 +1,6 @@
 class TinyRouteSelector {
 
-  makeAutoComplete(parent, placeholder) {
+  makeAutoComplete(parent, placeholder, lat, lng) {
     const div = document.createElement('div');
     parent.appendChild(div);
     const input = document.createElement('input');
@@ -13,7 +13,7 @@ class TinyRouteSelector {
       },
       data:{
         src: (query) => {
-          const peliasUrl = `https://photon.stadtnavi.eu/pelias/v1/search?text=${query}&focus.point.lat=53.015895&focus.point.lon=14.000255&layers=station,venue,address,street&lang=de`;
+          const peliasUrl = `https://photon.stadtnavi.eu/pelias/v1/search?text=${query}&focus.point.lat=${lat}&focus.point.lon=${lng}&layers=station,venue,address,street&lang=de`;
           return fetch(`${peliasUrl}`)
             .then(r => r.json())
             .then(r => r.features.map(this.toDisplayValues));
@@ -59,7 +59,14 @@ class TinyRouteSelector {
 
   constructor(divId, options) {
 
-    options = options || {};
+    options = options || { };
+
+    if(!options.focus) {
+      options.focus = {
+        lat: 51.6927,
+        lng: 13.2354
+      }
+    }
     const container = document.getElementById(divId);
     container.className = "tiny-route-widget";
 
@@ -70,8 +77,8 @@ class TinyRouteSelector {
     header.appendChild(h1);
     container.appendChild(header);
 
-    var start = this.makeAutoComplete(container, "Startort eingeben");
-    var end = this.makeAutoComplete(container, "Zielort eingeben");
+    var start = this.makeAutoComplete(container, "Startort eingeben", options.focus.lat, options.focus.lng);
+    var end = this.makeAutoComplete(container, "Zielort eingeben", options.focus.lat, options.focus.lng);
 
     const div1 = document.createElement('div');
 
