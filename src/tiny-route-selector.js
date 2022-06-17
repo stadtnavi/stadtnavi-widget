@@ -59,6 +59,7 @@ class TinyRouteSelector {
 
   constructor(divId, options) {
 
+    options = options || {};
     const container = document.getElementById(divId);
     container.className = "tiny-route-widget";
 
@@ -99,7 +100,7 @@ class TinyRouteSelector {
     container.appendChild(div2);
 
     button.onclick = () => {
-      var url = "https://herzberg-elster.bbnavi.de";
+      var url = options.baseUrl || "https://herzberg-elster.bbnavi.de";
 
       if(start.selection && end.selection && this.selectedDate) {
         url = `${url}/reiseplan`;
@@ -107,7 +108,6 @@ class TinyRouteSelector {
 
       const first = this.toUrlPart(start.selection);
       const second = this.toUrlPart(end.selection);
-
 
       url = `${url}/${first}/${second}`;
       if(this.selectedDate) {

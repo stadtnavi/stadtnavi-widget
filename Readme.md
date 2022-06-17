@@ -110,10 +110,8 @@ Demo: https://tiles.stadtnavi.eu/widget/tiny.html
 
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/stadtnavi/stadtnavi-widget?label=latest%20version)
 
-- Add latest CSS file to HTML page: `https://tiles.stadtnavi.eu/widget/${version}/stadtnavi-widget.css`
-- Add latest JS: `https://tiles.stadtnavi.eu/widget/${version}/stadtnavi-widget.js`
-
-
+- Add latest CSS file to HTML page: `https://tiles.stadtnavi.eu/widget/${version}/tiny-widget.css`
+- Add latest JS: `https://tiles.stadtnavi.eu/widget/${version}/tiny-widget.js`
 
 #### `TinyRouteSelector`
 
@@ -130,7 +128,7 @@ new TinyRouteSelector(divId, options);
 
 #### Options
 
-- `baseUrl`: Leaflet-compatible URL for the background map. Ignored if `wms` (see below) is configured instead.
+- `baseUrl`: The base URL of your Digitransit instance.
   Default: `https://herzberg-elster.bbnavi.de`  
 
 ### Development
