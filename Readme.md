@@ -99,6 +99,40 @@ new StadtnaviLocationSelector(divId, options);
 - `wms.format`: Image format to use
   Default: `image/png`
 
+
+## Tiny widget
+
+If you don't have the space for a full-size widget, there is alsow the tiny one available.
+
+Demo: https://tiles.stadtnavi.eu/widget/tiny.html
+
+### Usage
+
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/stadtnavi/stadtnavi-widget?label=latest%20version)
+
+- Add latest CSS file to HTML page: `https://tiles.stadtnavi.eu/widget/${version}/stadtnavi-widget.css`
+- Add latest JS: `https://tiles.stadtnavi.eu/widget/${version}/stadtnavi-widget.js`
+
+
+
+#### `TinyRouteSelector`
+
+Displays a very small widget to select a
+
+To use it create a `<div>`, give it an ID and execute the following JS:
+
+```js
+new TinyRouteSelector(divId, options);
+```
+#### Arguments
+
+- `divId`: ID of the `<div>` element into which the widget is placed.
+
+#### Options
+
+- `baseUrl`: Leaflet-compatible URL for the background map. Ignored if `wms` (see below) is configured instead.
+  Default: `https://herzberg-elster.bbnavi.de`  
+
 ### Development
 
 To develop this widget, you should install the required packages via 
