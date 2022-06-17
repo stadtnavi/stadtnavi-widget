@@ -72,11 +72,13 @@ class TinyRouteSelector {
     var start = this.makeAutoComplete(container, "Startort eingeben");
     var end = this.makeAutoComplete(container, "Zielort eingeben");
 
+    const div1 = document.createElement('div');
+
     const datePicker = document.createElement('button');
     datePicker.textContent = "Abfahrt jetzt";
     datePicker.className = "btn";
-    container.appendChild(datePicker);
-
+    div1.appendChild(datePicker);
+    container.appendChild(div1);
 
     flatpickr(datePicker, {
       enableTime: true,
@@ -88,11 +90,13 @@ class TinyRouteSelector {
       },
     });
 
+    const div2 = document.createElement('div');
     const button = document.createElement('button');
     button.textContent = "Route suchen"
     button.className = "submit button";
 
-    container.appendChild(button);
+    div2.appendChild(button);
+    container.appendChild(div2);
 
     button.onclick = () => {
       var url = "https://herzberg-elster.bbnavi.de";

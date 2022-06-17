@@ -25,9 +25,13 @@
   padding: 3px 10px;
   text-align: center;
   max-width: 500px;
+  margin: auto;
+  display: block;
 }
-.tiny-route-widget .button.submit {
-  float: right;
+
+.tiny-route-widget .btn {
+  margin: auto;
+  display: block;
 }
 
 .tiny-route-widget .autoComplete_wrapper input {
