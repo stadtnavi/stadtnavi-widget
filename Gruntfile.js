@@ -81,6 +81,10 @@ module.exports = function(grunt) {
         src: 'dist/latest/tiny-widget.css',
         dest: 'dist/<%= pkg.version %>/tiny-widget.css'
       },
+      tinydemo: {
+        src: 'src/tiny.html',
+        dest: 'dist/tiny.html'
+      },
     },
     watch: {
       files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.css', 'src/**/*.html', 'test/**/*.js'],
