@@ -23,7 +23,7 @@
       margin-top: 20px;
     }
 
-    #widget-1 {
+    #widget-1, #widget-2 {
       border: 1px dotted grey;
       width: 260px;
       height: 260px;
@@ -44,7 +44,7 @@
       </p>
 
       <section>
-        <h2 class="mt-5">Tiny widget</h2>
+        <h2 class="mt-5">Tiny widget for Herzberg(Elster)</h2>
 
         <div id='widget-1'></div>
 
@@ -55,6 +55,21 @@
         <h4>JavaScript code</h4>
         <pre>
 new TinyRouteSelector('widget-1');</pre>
+
+      </section>
+
+      <section>
+        <h2 class="mt-5">Tiny widget for Angermünde</h2>
+
+        <div id='widget-2'></div>
+
+        <script type="text/javascript">
+          new TinyRouteSelector('widget-2', { baseUrl: "https://angermuende.bbnavi.de" });
+        </script>
+
+        <h4>JavaScript code</h4>
+        <pre>
+new TinyRouteSelector('widget-2', { baseUrl: "https://angermuende.bbnavi.de" });</pre>
 
       </section>
     </main>
