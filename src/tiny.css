@@ -11,6 +11,7 @@
   background: #da1b1b;
   padding: 5px;
   border-radius: 3px;
+  margin-bottom: 15px;
 }
 
 .tiny-route-widget .button {
@@ -27,4 +28,17 @@
 }
 .tiny-route-widget .button.submit {
   float: right;
+}
+
+.tiny-route-widget .autoComplete_wrapper input {
+  font-size: 13px;
+  padding: 3px 10px;
+  height: 35px;
+}
+.tiny-route-widget .autoComplete_wrapper > ul {
+  margin: 0;
+}
+.tiny-route-widget .autoComplete_wrapper > ul > li{
+  padding: 5px 10px;
+  font-size: 13px;
 }
