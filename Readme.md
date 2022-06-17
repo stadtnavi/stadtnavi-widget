@@ -115,7 +115,7 @@ Demo: https://tiles.stadtnavi.eu/widget/tiny.html
 
 #### `TinyRouteSelector`
 
-Displays a very small widget to select a
+Displays a very small widget to select a start, destination and time.
 
 To use it create a `<div>`, give it an ID and execute the following JS:
 
@@ -129,7 +129,7 @@ new TinyRouteSelector(divId, options);
 #### Options
 
 - `baseUrl`: The base URL of your Digitransit instance.
-  Default: `https://herzberg-elster.bbnavi.de`  
+  Default: `https://herzberg-elster.bbnavi.de`
 
 ### Development
 
