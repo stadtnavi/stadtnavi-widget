@@ -73,7 +73,7 @@ class TinyRouteSelector {
     const header = document.createElement('header');
 
     const h1 = document.createElement('img');
-    h1.src = "https://bbnavi.de/wp-content/uploads/2021/09/bbnavi-logo-weiss-transparent.png"
+    h1.src = options.logoUrl || "https://bbnavi.de/wp-content/uploads/2021/09/bbnavi-logo-weiss-transparent.png";
     header.appendChild(h1);
     container.appendChild(header);
 
