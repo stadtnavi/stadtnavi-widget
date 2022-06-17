@@ -130,7 +130,7 @@ new TinyRouteSelector(divId, options);
 
 - `baseUrl`: The base URL of your Digitransit instance.
   Default: `https://herzberg-elster.bbnavi.de`
-- `focus`: A JSON object containing the properties `lat` and `lng`. This sets the focus point of the search and decides if, for example a search for "anger" should return "Angermünde" or "Am Anger, Herzberg (Elster)"
+- `focus`: A JSON object containing the properties `lat` and `lng`. This sets the focus point of the search and decides if, for example, a search for "anger" should return "Angermünde" or "Am Anger, Herzberg (Elster)" in first place.
   Default: `{ lat: 51.6927, lng: 13.2354 }` (Herzberg (Elster))
 
 ### Development
