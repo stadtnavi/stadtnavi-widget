@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>bbnavi widget demos</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- not needed for widget itself, just for this demo page -->
+    <link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh" crossorigin="anonymous">
+
+    <!-- widget imports -->
+    <script src="latest/tiny-widget.js"></script>
+    <link rel="stylesheet" href="latest/tiny-widget.css"/>
+
+    <style>
+    body {
+      margin-bottom: 100px;
+    }
+
+    h4 {
+      margin-top: 20px;
+    }
+
+    #widget-1 {
+      border: 1px dotted grey;
+      width: 260px;
+      height: 260px;
+      padding: 10px;
+    }
+
+    </style>
+
+
+  </head>
+  <body>
+    <main role="main" class="container">
+      <h1 class="mt-5">bbnavi widget demos</h1>
+      <p class="lead">Integrate bbnavi into your own website.</p>
+
+      <p>
+      To read the official documentation visit the <a href="https://github.com/stadtnavi/stadtnavi-widget">project's Github page</a>. Alternatively, look at the source code of this page to get an idea how to use the widgets.
+      </p>
+
+      <section>
+        <h2 class="mt-5">Tiny widget</h2>
+
+        <div id='widget-1'></div>
+
+        <script type="text/javascript">
+          new TinyRouteSelector('widget-1');
+        </script>
+
+        <h4>JavaScript code</h4>
+        <pre>
+new TinyRouteSelector('widget-1');</pre>
+
+      </section>
+    </main>
+
+  </body>
+
+</html>
+
+
