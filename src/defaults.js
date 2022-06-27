@@ -10,7 +10,8 @@ const Stadtnavi = {
     pinSecondaryColor: "#000000",
     stadtnaviLinkText: "Route auf stadtnavi suchen",
     stadtnaviBaseUrl: "https://herrenberg.stadtnavi.de/",
-    wms: null
+    wms: null,
+    logoUrl: null
   },
 
   marker: (latlng, options) => {

@@ -30,6 +30,26 @@ L.control.address = function(opts) {
   return new L.Control.Address(opts);
 }
 
+L.Control.Logo = L.Control.extend({
+  onAdd: function(map) {
+    const div = L.DomUtil.create('div');
+    const img = L.DomUtil.create('img');
+    div.className = "stadtnavi-logo"
+    img.src = this.options.url;
+
+    div.appendChild(img);
+
+    return div;
+  },
+
+  onRemove: function(map) {}
+});
+
+L.control.logo = function(opts) {
+  return new L.Control.Logo(opts);
+}
+
+
 class StadtnaviAddressBox {
 
   constructor(divId, title, address, options) {
@@ -50,6 +70,10 @@ class StadtnaviAddressBox {
       zoom: 16,
       scrollWheelZoom: 'center'
     });
+
+    if(mergedOptions.logoUrl) {
+      L.control.logo({ position: 'topright', url: mergedOptions.logoUrl }).addTo(map);
+    }
 
     const layer = Stadtnavi.tileLayer(mergedOptions);
     layer.addTo(map);
