@@ -23,18 +23,18 @@
       margin-top: 20px;
     }
 
-    #widget-1, #widget-2, #widget-3 {
+    #widget-1, #widget-2, #widget-3, #widget-4 {
       border: 1px dotted grey;
       width: 260px;
       height: 260px;
       padding: 10px;
     }
 
-    #widget-3 header {
+    #widget-4 header {
       background: white;
     }
 
-    #widget-3 img {
+    #widget-4 img {
       width: 220px;
       height: 40px
     }
@@ -82,12 +82,42 @@ new TinyRouteSelector('widget-2', { baseUrl: "https://angermuende.bbnavi.de", fo
       </section>
 
       <section>
-        <h2 class="mt-5">Tiny widget with custom logo</h2>
+        <h2 class="mt-5">Tiny widget with fixed destination</h2>
 
         <div id='widget-3'></div>
 
         <script type="text/javascript">
           new TinyRouteSelector('widget-3', {
+  baseUrl: "https://angermuende.bbnavi.de",
+  focus: { lat: 53.0179, lng: 13.9978 },
+  destination: {
+    label: "Rathaus Angermünde",
+    lat: 53.01800,
+    lng: 14.00426
+  }
+});
+        </script>
+
+        <h4>JavaScript code</h4>
+        <pre>
+new TinyRouteSelector('widget-3', {
+  baseUrl: "https://angermuende.bbnavi.de",
+  focus: { lat: 53.0179, lng: 13.9978 },
+  destination: {
+    label: "Rathaus Angermünde",
+    lat: 53.01800,
+    lng: 14.00426
+  }
+});</pre>
+      </section>
+
+      <section>
+        <h2 class="mt-5">Tiny widget with custom logo</h2>
+
+        <div id='widget-4'></div>
+
+        <script type="text/javascript">
+          new TinyRouteSelector('widget-4', {
             baseUrl: "https://angermuende.bbnavi.de",
             logoUrl: "https://www.angermuende.de/wp-content/uploads/2019/08/logo_der_stadt_angermuende.png",
             focus: { lat: 53.0179, lng: 13.9978 }
@@ -96,7 +126,7 @@ new TinyRouteSelector('widget-2', { baseUrl: "https://angermuende.bbnavi.de", fo
 
         <h4>JavaScript code</h4>
         <pre>
-new TinyRouteSelector('widget-3', {
+new TinyRouteSelector('widget-4', {
   baseUrl: "https://angermuende.bbnavi.de",
   logoUrl: "https://www.angermuende.de/wp-content/uploads/2019/08/logo_der_stadt_angermuende.png",
   focus: { lat: 53.0179, lng: 13.9978 }

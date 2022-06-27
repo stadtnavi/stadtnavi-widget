@@ -1,9 +1,12 @@
 class TinyRouteSelector {
 
-  makeAutoComplete(parent, placeholder, lat, lng) {
+  makeAutoComplete(parent, placeholder, lat, lng, preselected) {
     const div = document.createElement('div');
     parent.appendChild(div);
     const input = document.createElement('input');
+    if(preselected.label) {
+      input.value = preselected.label;
+    }
     div.appendChild(input);
 
     const autoCompleteObj = new autoComplete({
@@ -39,6 +42,15 @@ class TinyRouteSelector {
       },
     });
 
+    if(preselected.lat && preselected.lng) {
+      autoCompleteObj.selection = {
+        match: preselected.label,
+        value: {
+          coordinates: [preselected.lng, preselected.lat]
+        }
+      }
+    }
+
     return autoCompleteObj;
   }
 
@@ -67,6 +79,9 @@ class TinyRouteSelector {
         lng: 13.2354
       }
     }
+    if(!options.destination) {
+      options.destination = {};
+    }
     const container = document.getElementById(divId);
     container.className = "tiny-route-widget";
 
@@ -77,8 +92,8 @@ class TinyRouteSelector {
     header.appendChild(h1);
     container.appendChild(header);
 
-    var start = this.makeAutoComplete(container, "Startort eingeben", options.focus.lat, options.focus.lng);
-    var end = this.makeAutoComplete(container, "Zielort eingeben", options.focus.lat, options.focus.lng);
+    var start = this.makeAutoComplete(container, "Startort eingeben", options.focus.lat, options.focus.lng, {});
+    var end = this.makeAutoComplete(container, "Zielort eingeben", options.focus.lat, options.focus.lng, options.destination);
 
     const div1 = document.createElement('div');
 
