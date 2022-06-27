@@ -64,13 +64,13 @@ module.exports = function(grunt) {
       images_latest: {
         expand: true,
         flatten: true,
-        src: 'node_modules/leaflet/dist/images/*',
+        src: ['node_modules/leaflet/dist/images/*', 'images/*' ],
         dest: 'dist/latest/images/'
       },
       images_versioned: {
         expand: true,
         flatten: true,
-        src: 'node_modules/leaflet/dist/images/*',
+        src: ['node_modules/leaflet/dist/images/*', 'images/*' ],
         dest: 'dist/<%= pkg.version %>/images/'
       },
       tinyjs: {
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
       },
     },
     watch: {
-      files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.css', 'src/**/*.html', 'test/**/*.js'],
+      files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.css', 'src/**/*.html', 'src/**/*.html', 'images/*', 'test/**/*.js'],
       tasks: ['default']
     }
   });
