@@ -50,6 +50,8 @@ can pass `options` as a JSON object with the following possible keys:
   Default: `Route auf stadtnavi suchen`
 - `stadtnaviBaseUrl`: Base URL of stadtnavi instance used for routing link
   Default: `https://herrenberg.stadtnavi.de/`
+- `logoUrl`: URL of the logo to display at the top right hand corner
+  Default: `null`
 - `wms.url`: The URL of a WMS service to fetch map tiles from.
   Default: `null`
 - `wms.layers`: Comma-separated list of layers for the map tiles
