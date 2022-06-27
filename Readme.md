@@ -134,6 +134,8 @@ new TinyRouteSelector(divId, options);
   Default: `https://bbnavi.de/wp-content/uploads/2021/09/bbnavi-logo-weiss-transparent.png`
 - `focus`: A JSON object containing the properties `lat` and `lng`. This sets the focus point of the search and decides if, for example, a search for "anger" should return "Angermünde" or "Am Anger, Herzberg (Elster)" in first place.
   Default: `{ lat: 51.6927, lng: 13.2354 }` (Herzberg (Elster))
+- `destination`: A JSON object containing the properties `label`, lat` and `lng`. This pre-selects the destination of the widget.
+  Default: `{ }` 
 
 ### Development
 
