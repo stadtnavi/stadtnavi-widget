@@ -66,7 +66,8 @@ class TinyRouteSelector {
       return "-";
     }
     const [lng, lat] = selection.value.coordinates;
-    return `${encodeURI(selection.match)}::${lat},${lng}`
+    const match = encodeURI(selection.match.replaceAll("/",""));
+    return `${match}::${lat},${lng}`
   }
 
   constructor(divId, options) {
