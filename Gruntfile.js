@@ -85,6 +85,10 @@ module.exports = function(grunt) {
         src: 'src/tiny.html',
         dest: 'dist/tiny.html'
       },
+      iframedemo: {
+        src: 'src/iframe.html',
+        dest: 'dist/iframe.html'
+      },
     },
     watch: {
       files: ['Gruntfile.js', 'src/**/*.js', 'src/**/*.css', 'src/**/*.html', 'src/**/*.html', 'images/*', 'test/**/*.js'],
