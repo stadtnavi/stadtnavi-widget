@@ -22,7 +22,9 @@ module.exports = function(grunt) {
           'node_modules/leaflet.photon/leaflet.photon.css',
           'node_modules/leaflet.locatecontrol/dist/L.Control.Locate.css',
           'src/**/*.css',
-          '!src/tiny.css'
+          '!src/tiny.css',
+          '!src/bootstrap.min.css',
+          '!src/fontello-embedded.css',
         ],
         dest: 'dist/latest/<%= pkg.name %>.css'
       },
