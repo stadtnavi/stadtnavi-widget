@@ -77,21 +77,24 @@ new StadtnaviLocationSelector('widget-1', {
       </section>
 
       <section>
-        <h2 class="mt-5">Address box</h2>
+        <h2 class="mt-5">Address box with well-known coordinates</h2>
 
         <h4>JavaScript code</h4>
         <pre>
-new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {});</pre>
+new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {}, 48.659697, 8.943804);</pre>
 
         <div id='widget-2' class="stadtnavi-widget"></div>
 
         <script type="text/javascript">
-          new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {});
+          new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {}, 48.659697, 8.943804);
         </script>
 
       </section>
 
+
       <section>
+        <h2 class="mt-5">Address box with on-the-fly geocoding</h2>
+
         <h4>JavaScript code</h4>
         <pre>
 new StadtnaviAddressBox('widget-3', "Rathaus Bietigheim-Bissingen", "Marktplatz 8, 74321 Bietigheim-Bissingen", {});</pre>
