@@ -21,11 +21,19 @@ To use it create a `<div>`, give it an ID and at least `200px` height and execut
 new StadtnaviAddressBox(divId, title, address, options);
 ```
 
+or, if the coordinates are known and no on-the-fly geocoding is required:
+
+```js
+new StadtnaviAddressBox(divId, title, address, options, lat, lon);
+```
+
 #### Arguments
 
 - `divId`: ID of the `<div>` element into which the interactive map is placed.
 - `title`: Name of the place for which the address box is for. This can be choosen freely and is used only for display purposes.
-- `address`: A full address with street name, house number, postal code and city. This is used for geolocating the place on the map so precise information is required.
+- `address`: A full address with street name, house number, postal code and city. This is used for geolocating the place on the map so precise information is required, in case lat/lon are unknown.
+- `lat`: Optional latitude value (-90 <=lat <= 90) for locating the place.
+- `lon`: Optional longitude value (-180 <=lat <= 180) for locating the place.
 
 #### Options
 

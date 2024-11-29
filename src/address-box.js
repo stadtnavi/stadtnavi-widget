@@ -52,7 +52,7 @@ L.control.logo = function(opts) {
 
 class StadtnaviAddressBox {
 
-  constructor(divId, title, address, options) {
+  constructor(divId, title, address, options, lat, lon) {
 
     this.defaults = {
       ... {
@@ -82,19 +82,28 @@ class StadtnaviAddressBox {
     map.attributionControl.setPrefix(false);
     map.dragging.disable();
 
+    const lonFloat = parseFloat(lon);
+    const latFloat = parseFloat(lat);
+    if (lonFloat >= -180 && lonFloat <= 180 && latFloat >= -90 && latFloat <= 90 ) {
+      this.zoomTo([latFloat, lonFloat], map, title, address);
+    } else {
+      fetch(`${Stadtnavi.photonUrl}/api?q=${address}`)
+        .then(r => r.json())
+        .then(json => {
 
-    fetch(`${Stadtnavi.photonUrl}/api?q=${address}`)
-      .then(r => r.json())
-      .then(json => {
+          const latLng = json.features[0].geometry.coordinates;
+          latLng.reverse();
+          this.zoomTo(latLng, map, title, address);
+        });
+    }
+  }
 
-        const latLng = json.features[0].geometry.coordinates;
-        latLng.reverse();
-        map.setView(latLng)
+  zoomTo(latLng, map, title, address ) {
+    map.setView(latLng)
 
-        Stadtnavi.marker(latLng, mergedOptions).addTo(map);
-        L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address,
-          stadtnaviLinkText: mergedOptions.stadtnaviLinkText, stadtnaviBaseUrl: mergedOptions.stadtnaviBaseUrl }).addTo(map);
-      });
+    Stadtnavi.marker(latLng, this.mergedOptions).addTo(map);
+    L.control.address({ position: 'topleft', lat: latLng[0], lng: latLng[1], title, address,
+      stadtnaviLinkText: this.mergedOptions.stadtnaviLinkText, stadtnaviBaseUrl: this.mergedOptions.stadtnaviBaseUrl }).addTo(map);
   }
 
   computeOptions(options) {
