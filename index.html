@@ -77,24 +77,21 @@ new StadtnaviLocationSelector('widget-1', {
       </section>
 
       <section>
-        <h2 class="mt-5">Address box with well-known coordinates</h2>
+        <h2 class="mt-5">Address box</h2>
 
         <h4>JavaScript code</h4>
         <pre>
-new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {}, 48.659697, 8.943804);</pre>
+new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {});</pre>
 
         <div id='widget-2' class="stadtnavi-widget"></div>
 
         <script type="text/javascript">
-          new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {}, 48.659697, 8.943804);
+          new StadtnaviAddressBox('widget-2', "Volkshochschule Außenstelle Ehningen", "Gartenstraße 11, 71139 Ehningen", {});
         </script>
 
       </section>
 
-
       <section>
-        <h2 class="mt-5">Address box with on-the-fly geocoding</h2>
-
         <h4>JavaScript code</h4>
         <pre>
 new StadtnaviAddressBox('widget-3', "Rathaus Bietigheim-Bissingen", "Marktplatz 8, 74321 Bietigheim-Bissingen", {});</pre>
@@ -177,6 +174,19 @@ new StadtnaviAddressBox('widget-5', "Bahnhof Angermünde", "Bahnhofsplatz, 16278
           });
         </script>
 
+      </section>
+
+      <section>
+
+        <h2 class="mt-5">Address box via IFrame</h2>
+
+        <h4>HTML code</h4>
+        <pre>&lt;iframe src="iframe.html?address=Marktplatz 5, 71083 Herrenberg&name=Rathaus&lat=48.5965246&lon=8.8704940"
+          width="100%" height="500" title="Adress Box IFrame Demo"/&gt;</pre>
+
+        <div id='widget-6' class="stadtnavi-widget">
+           <iframe src="iframe.html?address=Marktplatz 5, 71083 Herrenberg&name=Rathaus&lat=48.5965246&lon=8.8704940" width="100%" height="500" title="Adress Box IFrame Demo"/>
+        </div>
       </section>
 
     </main>
