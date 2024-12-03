@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>stadtnavi</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- widget imports -->
+    <link rel="stylesheet" href="latest/stadtnavi-widget.css"/>
+    <script src="latest/stadtnavi-widget.js"></script>
+    <style>
+      body {
+        margin: 0px;
+      }
+      .stadtnavi-widget {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id='widget' class="stadtnavi-widget"></div>
+
+    <script type="text/javascript">
+      let params = new URLSearchParams(document.location.search);
+      new StadtnaviAddressBox('widget', params.get("name"), params.get("address"), {
+        pinPrimaryColor: params.get("pinPrimaryColor") || "#9FC727",
+        pinSecondaryColor: params.get("pinSecondaryColor") || "#FFFFFF",
+      }, 
+      params.get("lat"),
+      params.get("lon"));
+    </script>
+  </body>
+</html>
+
+
